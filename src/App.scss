@@ -1,0 +1,43 @@
+@import '~antd/dist/antd.css';
+
+.link-container {
+  text-align: center;
+  margin-top: -10px;
+  opacity: 0.8;
+  text-align: center;
+
+  button {
+    font-size: 14px;
+  }
+}
+.logo {
+  display: block;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.authenticate {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.full-page {
+  height: 100vh;
+}
+
+.client-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.upper-case {
+  text-transform: uppercase;
+}
+
+.ant-btn-primary {
+  border-color: #47bc9b;
+  background: #47bc9b;
+}
