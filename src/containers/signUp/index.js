@@ -1,13 +1,13 @@
 import React from 'react';
-import {LOGIN, APP} from '../../utils/constants';
-import {useHistory} from 'react-router-dom';
-import {Button, Row, Col, Form, ConfigProvider, Input} from 'antd';
-import {LockOutlined, UserOutlined} from '@ant-design/icons';
+import { LOGIN, APP } from '../../utils/constants';
+import { useHistory } from 'react-router-dom';
+import { Button, Row, Col, Form, ConfigProvider, Input } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
-import logo from '../../logo.png'
+import logo from '../../logo.png';
 import './signUp.scss';
 
-const {Item: FormItem} = Form;
+const { Item: FormItem } = Form;
 
 function SignUp() {
   const history = useHistory();
@@ -28,11 +28,11 @@ function SignUp() {
     <ConfigProvider direction={'ltr'}>
       <Row align="middle" justify="center" className="full-page">
         <Col span={24} className="signup-container authenticate">
-          <img src={logo} className="logo" alt="Omnios Logo"/>
+          <img src={logo} className="logo" alt="Omnios Logo" />
           <Form
             className="sign-up-form"
             name="sign-up"
-            wrapperCol={{span: 24}}
+            wrapperCol={{ span: 24 }}
             form={form}
             layout="vertical"
           >
@@ -40,12 +40,10 @@ function SignUp() {
               hasFeedback
               label="Email"
               name="email"
-              rules={[
-                {type: 'email', message: 'Please enter a valid email address'},
-              ]}
+              rules={[{ type: 'email', message: 'Please enter a valid email address' }]}
             >
               <Input
-                prefix={<UserOutlined className="sign-up-form-icon"/>}
+                prefix={<UserOutlined className="sign-up-form-icon" />}
                 placeholder="Email"
                 autoComplete="email"
                 maxLength={256}
@@ -56,12 +54,10 @@ function SignUp() {
               hasFeedback
               name="password"
               label="Password"
-              rules={[
-                {required: true, message: 'Password field is mandatory'},
-              ]}
+              rules={[{ required: true, message: 'Password field is mandatory' }]}
             >
               <Input.Password
-                prefix={<LockOutlined className="sign-up-form-icon"/>}
+                prefix={<LockOutlined className="sign-up-form-icon" />}
                 type="password"
                 placeholder="Password"
                 autoComplete="password"
@@ -74,12 +70,10 @@ function SignUp() {
               hasFeedback
               name="confirm_password"
               label="Confirm Password"
-              rules={[
-                {required: true, message: 'Confirm Password field is mandatory'},
-              ]}
+              rules={[{ required: true, message: 'Confirm Password field is mandatory' }]}
             >
               <Input.Password
-                prefix={<LockOutlined className="sign-up-form-icon"/>}
+                prefix={<LockOutlined className="sign-up-form-icon" />}
                 type="password"
                 placeholder="Password"
                 autoComplete="password"

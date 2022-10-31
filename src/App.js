@@ -1,16 +1,16 @@
-import React, {Suspense} from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import Router from "../src/router";
-import LoadingPage from "../src/components/loadingPage";
+import Router from '../src/router';
+import LoadingPage from '../src/components/loadingPage';
 
 import './App.scss';
 
 function App() {
   return (
-    <Suspense fallback={<LoadingPage/>}>
+    <Suspense fallback={<LoadingPage />}>
       <BrowserRouter>
-        <Router/>
+        <Router />
       </BrowserRouter>
     </Suspense>
   );
