@@ -4,9 +4,9 @@ import './home.scss';
 
 function Home() {
   return (
-    <Fragment>
+    <>
       <Header />
-    </Fragment>
+    </>
   );
 }
 

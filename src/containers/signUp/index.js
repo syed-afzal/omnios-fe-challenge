@@ -1,8 +1,8 @@
 import React from 'react';
-import { LOGIN, APP } from '../../utils/constants';
 import { useHistory } from 'react-router-dom';
 import { Button, Row, Col, Form, ConfigProvider, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LOGIN, APP } from '../../utils/constants';
 
 import logo from '../../logo.png';
 import './signUp.scss';
@@ -13,19 +13,19 @@ function SignUp() {
   const history = useHistory();
   const [form] = Form.useForm();
 
-  async function handleSubmit() {
+  const handleSubmit = async () => {
     let values = {};
     values = form.getFieldsValue(['email', 'password', 'confirm_password']);
     console.log(values);
     history.push(APP);
-  }
+  };
 
   const navigateToLogin = () => {
     history.push(LOGIN);
   };
 
   return (
-    <ConfigProvider direction={'ltr'}>
+    <ConfigProvider direction="ltr">
       <Row align="middle" justify="center" className="full-page">
         <Col span={24} className="signup-container authenticate">
           <img src={logo} className="logo" alt="Omnios Logo" />

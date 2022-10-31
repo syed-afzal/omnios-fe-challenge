@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import Router from '../src/router';
-import LoadingPage from '../src/components/loadingPage';
+import Router from './router';
+import LoadingPage from './components/loadingPage';
 
 import './App.scss';
 

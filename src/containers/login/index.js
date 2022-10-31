@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { APP, SIGN_UP } from '../../utils/constants';
-import { setToLocalStorage } from '../../utils/browser-storage';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Row, Col, Form, ConfigProvider, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { setToLocalStorage } from '../../utils/browser-storage';
+import { APP, SIGN_UP } from '../../utils/constants';
 import logo from '../../logo.png';
 import './login.scss';
 
@@ -14,13 +14,13 @@ function Login() {
   const [form] = Form.useForm();
   const [isDisabled, setIsDisabled] = useState(true);
 
-  async function handleSubmit() {
+  const handleSubmit = async () => {
     let values = {};
     values = form.getFieldsValue(['email', 'password']);
     console.log(values);
     setToLocalStorage('user', values);
     history.push(APP);
-  }
+  };
 
   const navigateToSignUp = () => {
     history.push(SIGN_UP);
@@ -44,7 +44,7 @@ function Login() {
   };
 
   return (
-    <ConfigProvider direction={'ltr'}>
+    <ConfigProvider direction="ltr">
       <Row align="middle" justify="center" className="full-page">
         <Col span={24} className="login-container authenticate">
           <img src={logo} className="logo" alt="Omnios Logo" />

@@ -1,11 +1,11 @@
-import React, { lazy, Fragment, useState, useEffect } from 'react';
+import React, { lazy, useState, useEffect } from 'react';
 import { Switch, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import { APP, LOGIN, SIGN_UP } from '../utils/constants';
 
-import PublicRoute from '../router/publicRoute';
-import PrivateRoute from '../router/privateRoute';
+import PublicRoute from './publicRoute';
+import PrivateRoute from './privateRoute';
 import LoadingPage from '../components/loadingPage';
 
 const history = createBrowserHistory();
@@ -20,7 +20,8 @@ function ProtectedRouter() {
   }, []);
 
   return (
-    <Fragment>
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
       {isUserLoading ? (
         <LoadingPage />
       ) : (
@@ -32,7 +33,7 @@ function ProtectedRouter() {
           </Switch>
         </Router>
       )}
-    </Fragment>
+    </>
   );
 }
 

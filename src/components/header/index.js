@@ -12,18 +12,16 @@ const { Header } = Layout;
 export const HeaderComponent = () => {
   const history = useHistory();
 
-  const LogoContainer = () => {
-    return (
-      <React.Fragment>
-        <Space>
-          <Avatar src={logo} className="header-logo" />
-          <span>
-            <b className="upper-case">Omnios</b>
-          </span>
-        </Space>
-      </React.Fragment>
-    );
-  };
+  const LogoContainer = () => (
+    <React.Fragment>
+      <Space>
+        <Avatar src={logo} className="header-logo" />
+        <span>
+          <b className="upper-case">Omnios</b>
+        </span>
+      </Space>
+    </React.Fragment>
+  );
 
   const handleLogout = () => {
     clearLocalStorage();

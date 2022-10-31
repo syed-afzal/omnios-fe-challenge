@@ -1,22 +1,27 @@
 .sign-up-form-icon {
   color: rgba(0, 0, 0, 0.25);
 }
+
 .sign-up-form-button {
   width: 100%;
 }
+
 .signup-container {
   max-width: 350px;
+
   .ant-tabs-card {
     &.ant-tabs-top {
       .ant-tabs-nav {
         margin-bottom: 0;
         border-bottom: 0;
+
         .ant-tabs-tab {
           width: 50%;
           justify-content: center;
           margin-left: 0;
           border-width: 2px;
           border-bottom-color: #e0723a99;
+
           &-active {
             border-color: #e0723a99;
             border-bottom: none;
@@ -26,16 +31,19 @@
           &:first-child {
             border-top-left-radius: 10px;
           }
+
           &:nth-child(2) {
             border-top-right-radius: 10px;
           }
         }
+
         .ant-tabs-nav-list {
           width: 100%;
         }
       }
     }
   }
+
   .ant-tabs-content {
     &.ant-tabs-content-top {
       border: 2px solid #e0723a99;
@@ -55,11 +63,13 @@
 
   .ant-input-affix-wrapper {
     border-radius: 5px;
+
     .ant-input {
       height: 32px;
       border-radius: none;
     }
   }
+
   .sign-up-form-button {
     height: 42px;
     border-radius: 5px;
