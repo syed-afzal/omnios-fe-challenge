@@ -1,14 +1,11 @@
 import React, { lazy, useState, useEffect } from 'react';
-import { Switch, Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import { APP, LOGIN, SIGN_UP } from '../utils/constants';
 
 import PublicRoute from './publicRoute';
 import PrivateRoute from './privateRoute';
 import LoadingPage from '../components/loadingPage';
-
-const history = createBrowserHistory();
 
 function ProtectedRouter() {
   const [isUserLoading, setUserLoading] = useState(true);
@@ -25,7 +22,7 @@ function ProtectedRouter() {
       {isUserLoading ? (
         <LoadingPage />
       ) : (
-        <Router history={history}>
+        <Router>
           <Switch>
             <PublicRoute path={LOGIN} component={lazy(() => import('../containers/login'))} />
             <PublicRoute path={SIGN_UP} component={lazy(() => import('../containers/signUp'))} />
