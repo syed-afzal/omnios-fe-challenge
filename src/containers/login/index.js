@@ -17,7 +17,6 @@ function Login() {
   const handleSubmit = async () => {
     let values = {};
     values = form.getFieldsValue(['email', 'password']);
-    console.log(values);
     setToLocalStorage('user', values);
     history.push(APP);
   };
@@ -27,9 +26,9 @@ function Login() {
   };
 
   const isFormValidValues = (from, keys) => {
-    const errors = form.getFieldsError(keys);
-    console.log(errors);
-    return true;
+    const errorsArray = form.getFieldsError(keys);
+    const isErrors = !!errorsArray.filter(({ errors }) => errors.length).length;
+    return !isErrors;
   };
 
   const handleFieldChange = () => {
