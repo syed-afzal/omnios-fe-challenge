@@ -26,7 +26,7 @@ function ProtectedRouter() {
           <Switch>
             <PublicRoute path={LOGIN} component={lazy(() => import('../containers/login'))} />
             <PublicRoute path={SIGN_UP} component={lazy(() => import('../containers/signUp'))} />
-            <PrivateRoute path={APP} component={lazy(() => import('../containers/home'))} />
+            <PrivateRoute path={APP} component={lazy(() => import('../containers'))} />
           </Switch>
         </Router>
       )}

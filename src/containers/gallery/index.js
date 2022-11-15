@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
-import './home.scss';
 
-function Home() {
+function Gallery() {
   return (
     <Fragment>
-      <h1>This is home</h1>
+      <h1>This is Gallery</h1>
     </Fragment>
   );
 }
 
-export default Home;
+export default Gallery;

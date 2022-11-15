@@ -20,6 +20,9 @@ export const HeaderComponent = () => {
           <b className="upper-case">Omnios</b>
         </span>
       </Space>
+      <Space>
+
+      </Space>
     </React.Fragment>
   );
 
