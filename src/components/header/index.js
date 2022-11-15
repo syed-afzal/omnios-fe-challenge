@@ -1,6 +1,6 @@
-import React from 'react';
-import { Layout, Button, Col, Row, Avatar, Space } from 'antd';
-import { LogoutOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
+import { Layout, Button, Col, Row, Avatar, Space, Menu } from 'antd';
+import { LogoutOutlined, HomeOutlined, PictureOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 import { LOGIN } from '../../utils/constants';
 import { clearLocalStorage } from '../../utils/browser-storage';
@@ -11,6 +11,7 @@ import './header.scss';
 const { Header } = Layout;
 export const HeaderComponent = () => {
   const history = useHistory();
+  const [selectedkey, setSelectedkey] = useState('home');
 
   const LogoContainer = () => (
     <React.Fragment>
@@ -19,9 +20,6 @@ export const HeaderComponent = () => {
         <span>
           <b className="upper-case">Omnios</b>
         </span>
-      </Space>
-      <Space>
-
       </Space>
     </React.Fragment>
   );
@@ -35,10 +33,27 @@ export const HeaderComponent = () => {
     <Layout>
       <Header className="light-header">
         <Row justify="space-between" align="middle">
-          <Col span={8} xs={0} sm={8}>
+          <Col span={4} xs={0} sm={4}>
             <LogoContainer />
           </Col>
-          <Col span={16} xs={24} sm={16} className="client-container">
+          <Col span={16} xs={0} sm={16}>
+            <Menu
+              onClick={({ key }) => {
+                setSelectedkey(key);
+                history.push(key);
+              }}
+              defaultSelectedKeys={[selectedkey]}
+              mode="horizontal"
+            >
+              <Menu.Item key="home" icon={<HomeOutlined />}>
+                Home
+              </Menu.Item>
+              <Menu.Item key="gallery" icon={<PictureOutlined />}>
+                Gallery
+              </Menu.Item>
+            </Menu>
+          </Col>
+          <Col span={4} xs={4} sm={4} className="client-container">
             <Space size={12}>
               <Space>
                 <Button type="primary" onClick={handleLogout}>

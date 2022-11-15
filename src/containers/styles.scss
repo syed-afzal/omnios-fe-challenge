@@ -1,3 +1,21 @@
 .content {
   height: calc(100vh - 64px);
 }
+
+.ant-menu-horizontal {
+  border-bottom: none !important;
+  font-size: 16px;
+}
+
+.ant-menu-item-selected,
+.ant-menu-item-active{
+  &:after{
+    border-bottom: none !important;
+  }
+}
+
+.ant-menu-item-selected {
+  font-weight: bold;
+  color: #47bc9b !important;
+}
+

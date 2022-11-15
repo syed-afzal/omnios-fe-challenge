@@ -5,7 +5,7 @@ import { Switch } from 'react-router-dom';
 import Header from '../components/header';
 import LoadingPage from '../components/loadingPage';
 import PrivateRoute from '../router/privateRoute';
-import { APP, GALLERY } from '../utils/constants';
+import { GALLERY, HOME } from '../utils/constants';
 
 import './styles.scss';
 
@@ -17,9 +17,9 @@ function MainContainer() {
       <Header />
       <Layout>
         <Content className="content">
-          <Suspense fallback={LoadingPage}>
+          <Suspense fallback={<LoadingPage />}>
             <Switch>
-              <PrivateRoute path={APP} component={lazy(() => import('./home'))} />
+              <PrivateRoute path={HOME} component={lazy(() => import('./home'))} />
               <PrivateRoute path={GALLERY} component={lazy(() => import('./gallery'))} />
             </Switch>
           </Suspense>
