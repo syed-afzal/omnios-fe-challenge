@@ -1,15 +1,16 @@
 import React, { Fragment, Suspense, lazy } from 'react';
 import { Layout } from 'antd';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Header from '../components/header';
 import LoadingPage from '../components/loadingPage';
 import PrivateRoute from '../router/privateRoute';
-import { GALLERY, HOME } from '../utils/constants';
+import {GALLERY, APP, HOME, LOGIN} from '../utils/constants';
 
 import './styles.scss';
+import PublicRoute from "../router/publicRoute";
 
-const { Content } = Layout;
+const { Content } = Layout
 
 function MainContainer() {
   return (
@@ -19,8 +20,9 @@ function MainContainer() {
         <Content className="content">
           <Suspense fallback={<LoadingPage />}>
             <Switch>
-              <PrivateRoute path={HOME} component={lazy(() => import('./home'))} />
-              <PrivateRoute path={GALLERY} component={lazy(() => import('./gallery'))} />
+              <PrivateRoute exact path={HOME} component={lazy(() => import('./home'))} />
+              <PrivateRoute exact path={GALLERY} component={lazy(() => import('./gallery'))} />
+              <Route component={() => <div>Not Found Component</div>} />
             </Switch>
           </Suspense>
         </Content>

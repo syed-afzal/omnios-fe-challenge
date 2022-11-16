@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Layout, Button, Col, Row, Avatar, Space, Menu } from 'antd';
 import { LogoutOutlined, HomeOutlined, PictureOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
-import { LOGIN } from '../../utils/constants';
+import { LOGIN, GALLERY, HOME } from '../../utils/constants';
 import { clearLocalStorage } from '../../utils/browser-storage';
 
 import logo from '../../logo-omnios.svg';
@@ -11,7 +11,7 @@ import './header.scss';
 const { Header } = Layout;
 export const HeaderComponent = () => {
   const history = useHistory();
-  const [selectedkey, setSelectedkey] = useState('home');
+  const [selectedkey, setSelectedkey] = useState('/');
 
   const LogoContainer = () => (
     <React.Fragment>
@@ -45,10 +45,10 @@ export const HeaderComponent = () => {
               defaultSelectedKeys={[selectedkey]}
               mode="horizontal"
             >
-              <Menu.Item key="home" icon={<HomeOutlined />}>
+              <Menu.Item key={HOME} icon={<HomeOutlined />}>
                 Home
               </Menu.Item>
-              <Menu.Item key="gallery" icon={<PictureOutlined />}>
+              <Menu.Item key={GALLERY} icon={<PictureOutlined />}>
                 Gallery
               </Menu.Item>
             </Menu>
