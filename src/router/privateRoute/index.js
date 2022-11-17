@@ -9,7 +9,7 @@ function PrivateRoute(props) {
     return <Redirect to={{ pathname: LOGIN }} />;
   }
 
-  if (props.location.pathname === '/') return <Redirect to={{ pathname: HOME }} />
+  if (props.location.pathname === '/') return <Redirect to={{ pathname: HOME }} />;
   return <Route {...props} />;
 }
 
