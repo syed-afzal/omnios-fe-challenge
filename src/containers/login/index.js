@@ -1,24 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Row, Col, Form, ConfigProvider, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { setToLocalStorage } from '../../utils/browser-storage';
-import { APP, SIGN_UP } from '../../utils/constants';
+import { SIGN_UP } from '../../utils/constants';
 import logo from '../../logo.png';
 import './login.scss';
 
 const { Item: FormItem } = Form;
 
 function Login() {
+  function personReducer(state, action) {
+    switch (action.type) {
+      case 'filed': {
+        return {
+          ...state,
+          [action.fieldName]: action.payload,
+        };
+      }
+      case 'error': {
+        return {
+          ...state,
+          error: action.payload,
+        };
+      }
+      default:
+        return state;
+    }
+  }
+
+  const INNITIAL_STATE = {
+    userName: '',
+    password: '',
+    error: '',
+  };
+
   const history = useHistory();
   const [form] = Form.useForm();
   const [isDisabled, setIsDisabled] = useState(true);
+  const [state, dispatch] = useReducer(personReducer, INNITIAL_STATE);
+  const { userName, password, error } = state;
 
   const handleSubmit = async () => {
     let values = {};
     values = form.getFieldsValue(['email', 'password']);
+    dispatch({
+      type: 'error',
+      payload: 'Server Error || 404 Not Found',
+    });
     setToLocalStorage('user', values);
-    history.push(APP);
   };
 
   const navigateToSignUp = () => {
@@ -73,6 +103,13 @@ function Login() {
                 autoComplete="email"
                 maxLength={256}
                 width="100%"
+                onChange={(e) => {
+                  dispatch({
+                    type: 'filed',
+                    payload: e.target.value,
+                    fieldName: 'userName',
+                  });
+                }}
               />
             </FormItem>
             <FormItem
@@ -99,6 +136,13 @@ function Login() {
                 maxLength={256}
                 className="width-100"
                 width="100%"
+                onChange={(e) => {
+                  dispatch({
+                    type: 'filed',
+                    payload: e.target.value,
+                    fieldName: 'password',
+                  });
+                }}
               />
             </FormItem>
           </Form>
@@ -118,6 +162,11 @@ function Login() {
           </div>
         </Col>
       </Row>
+      <div>
+        {userName}
+        {password}
+        {error}
+      </div>
     </ConfigProvider>
   );
 }
