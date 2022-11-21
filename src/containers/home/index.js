@@ -1,13 +1,6 @@
-import React, { Fragment, useState, useRef, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
+import { usePrevious } from '../../components/common';
 import './home.scss';
-
-function usePrevious(count) {
-  const prevCount = useRef();
-  useEffect(() => {
-    prevCount.current = count;
-  });
-  return prevCount.current;
-}
 
 function Home() {
   const [counter, setCounter] = useState(0);
