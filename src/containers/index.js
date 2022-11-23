@@ -21,6 +21,7 @@ function MainContainer() {
             <Switch>
               <PrivateRoute path={HOME} component={lazy(() => import('./home'))} />
               <PrivateRoute path={GALLERY} component={lazy(() => import('./gallery'))} />
+              <PrivateRoute path={GALLERY} component={lazy(() => import('./about'))} />
             </Switch>
           </Suspense>
         </Content>
